@@ -1,4 +1,4 @@
-# fancy-tools
+# fancy-tools Yanid et Elysee
 
 Ensemble de scripts Shell pour automatiser la configuration d'un environnement de devellopement Git.
 
