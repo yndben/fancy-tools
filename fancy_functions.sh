@@ -1,18 +1,17 @@
-#!/bin/bash 
-gco(){
-	if[ -z "$1" ]; then 
-		echo "Usage : gco 'votre message de commit'"
-		echo "Exemple : gco 'ajout de la fonction d'installation'"
-		return 1
- 	fi
+#!/bin/bash
 
-	if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-		echo "Erreur : ce repertoire n'est pas un depot git."
-		return 1
-	fi
+gco() {
+    if [ -z "$1" ]; then
+        echo "Usage : gco 'votre message de commit'"
+        return 1
+    fi
 
-	BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        echo "Erreur : ce repertoire n'est pas un depot Git."
+        return 1
+    fi
 
-	MESSAGE="[$BRANCH] $1"
-	git commit -m "$MESSAGE"
+    BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    MESSAGE="[$BRANCH] $1"
+    git commit -m "$MESSAGE"
 }
