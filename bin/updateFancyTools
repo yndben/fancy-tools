@@ -1,24 +1,19 @@
 #!/bin/bash
 set -e
 
-SRC_DIR=~/src/fancy_tools
+SRC_DIR=/home/yanid/src/fancy_tools
 
-echo "=== Mise à jour de fancy_tools ==="
+echo "=== Mise a jour de fancy_tools ==="
 
-cd "$SRC_DIR
+cd $SRC_DIR
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$BRANCH" != "main" ]; then
-    echo "Erreur : vous n'êtes pas sur la branche main (branche actuelle : $BRANCH)"
+    echo "Erreur : pas sur la branche main"
     exit 1
 fi
 
 git pull
-echo "[OK] Dépôt mis à jour"
+echo "[OK] Depot mis a jour"
 
-cp "$SRC_DIR/bin/updateFancyTools" ~/bin/updateFancyTools
-chmod +x ~/bin/updateFancyTools
-echo "[OK] updateFancyTools mis à jour dans ~/bin"
-
-echo "=== Mise à jour terminée ! ==="
-
+echo "=== Mise a jour terminee ! ==="
